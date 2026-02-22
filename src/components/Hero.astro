@@ -1,5 +1,11 @@
 ---
 // Hero with AI-generated watercolor background matching invite
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
+
 const basePath = import.meta.env.BASE_URL;
 ---
 
@@ -39,16 +45,16 @@ const basePath = import.meta.env.BASE_URL;
     
     <!-- Subtitle -->
     <p class="text-xl sm:text-2xl text-text-secondary mb-8 font-heading fade-in" style="animation-delay: 0.2s">
-      A Baby Shower for <span class="text-accent-pink font-semibold">Paula</span>
+      {t('hero.subtitle')} <span class="text-accent-pink font-semibold">Paula</span>
     </p>
     
     <!-- Date & Location Card -->
     <div class="inline-block bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg fade-in" style="animation-delay: 0.4s">
       <p class="text-lg sm:text-xl text-text-primary font-medium">
-        📅 March 7th, 2026 • 3:00 PM
+        📅 {t('hero.date')}
       </p>
       <p class="text-text-muted mt-1">
-        📍 Viki's House
+        📍 {t('hero.location')}
       </p>
     </div>
   </div>

@@ -1,29 +1,59 @@
 ---
+import { getLangFromUrl, getLocalizedPath, languages } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
+
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/organizers', label: 'Organizers' },
+  { href: '/', label: t('nav.home') },
+  { href: '/organizers', label: t('nav.organizers') },
 ];
+
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+// Get current path without base and language prefix for language switcher
+const currentPath = Astro.url.pathname
+  .replace(import.meta.env.BASE_URL, '')
+  .replace(/^\/(es|en)/, '')
+  || '/';
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo/Title -->
-      <a href={base} class="font-heading font-bold text-xl">
+      <a href={getLocalizedPath('/', lang)} class="font-heading font-bold text-xl">
         <span class="bg-gradient-to-r from-[#0EA5E9] via-[#A855F7] to-[#EC4899] bg-clip-text text-transparent">L & L</span>
       </a>
       
       <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden md:flex items-center gap-6">
         {navLinks.map(link => (
           <a 
-            href={link.href === '/' ? base : `${base}${link.href.slice(1)}`}
+            href={getLocalizedPath(link.href, lang)}
             class="text-text-secondary hover:text-accent-pink transition-colors font-medium"
           >
             {link.label}
           </a>
         ))}
+        
+        <!-- Language Switcher -->
+        <div class="flex items-center gap-1 ml-4 border-l border-gray-200 pl-4">
+          <a 
+            href={getLocalizedPath(currentPath, 'en')}
+            class={`px-2 py-1 rounded text-sm font-medium transition-colors ${lang === 'en' ? 'bg-accent-blue/20 text-accent-blue' : 'text-text-muted hover:text-text-primary'}`}
+          >
+            EN
+          </a>
+          <span class="text-text-muted">/</span>
+          <a 
+            href={getLocalizedPath(currentPath, 'es')}
+            class={`px-2 py-1 rounded text-sm font-medium transition-colors ${lang === 'es' ? 'bg-accent-pink/20 text-accent-pink' : 'text-text-muted hover:text-text-primary'}`}
+          >
+            ES
+          </a>
+        </div>
       </div>
       
       <!-- Mobile Menu Button -->
@@ -44,12 +74,29 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="px-4 py-4 space-y-2">
       {navLinks.map(link => (
         <a 
-          href={link.href === '/' ? base : `${base}${link.href.slice(1)}`}
+          href={getLocalizedPath(link.href, lang)}
           class="block py-2 text-text-secondary hover:text-accent-pink transition-colors font-medium"
         >
           {link.label}
         </a>
       ))}
+      
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center gap-2 pt-4 border-t border-gray-200 mt-4">
+        <span class="text-text-muted text-sm">🌐</span>
+        <a 
+          href={getLocalizedPath(currentPath, 'en')}
+          class={`px-3 py-1 rounded text-sm font-medium ${lang === 'en' ? 'bg-accent-blue/20 text-accent-blue' : 'text-text-muted'}`}
+        >
+          English
+        </a>
+        <a 
+          href={getLocalizedPath(currentPath, 'es')}
+          class={`px-3 py-1 rounded text-sm font-medium ${lang === 'es' ? 'bg-accent-pink/20 text-accent-pink' : 'text-text-muted'}`}
+        >
+          Español
+        </a>
+      </div>
     </div>
   </div>
 </nav>

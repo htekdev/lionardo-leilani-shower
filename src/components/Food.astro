@@ -1,4 +1,9 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
 ---
 
 <section class="py-20 px-4 bg-bg-surface" id="food">
@@ -6,26 +11,25 @@
     <!-- Section Header -->
     <div class="text-center mb-12 fade-in">
       <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
-        Food & Drinks
+        {t('food.title')}
       </h2>
-      <p class="text-text-secondary">Delicious eats coming your way!</p>
+      <p class="text-text-secondary">{t('food.subtitle')}</p>
     </div>
     
     <!-- Featured: Jasmine's Tacos -->
     <div class="glass rounded-3xl p-8 mb-8 text-center fade-in">
       <div class="text-6xl mb-4">🌮</div>
       <h3 class="font-heading font-bold text-2xl sm:text-3xl text-text-primary mb-2">
-        Fresh Tacos by Jasmine
+        {t('food.tacos')}
       </h3>
       <p class="text-accent-pink font-medium text-lg mb-4">
-        "The Taco Lady" 👩‍🍳
+        {t('food.tacoLady')}
       </p>
       <p class="text-text-secondary max-w-md mx-auto">
-        Get ready for amazing homemade tacos cooked fresh on-site! 
-        Jasmine is known for her incredible flavors that everyone loves.
+        {t('food.tacosDesc')}
       </p>
       <div class="mt-4 text-sm text-text-muted">
-        🕐 Serving starts at 5:00 PM
+        {t('food.servingTime')}
       </div>
     </div>
     
@@ -34,18 +38,18 @@
       <!-- Drinks -->
       <div class="glass rounded-2xl p-6 text-center fade-in">
         <div class="text-4xl mb-3">🥤</div>
-        <h4 class="font-heading font-semibold text-lg text-text-primary mb-2">Drinks</h4>
+        <h4 class="font-heading font-semibold text-lg text-text-primary mb-2">{t('food.drinks')}</h4>
         <p class="text-text-secondary text-sm">
-          Sodas and refreshments provided by family
+          {t('food.drinksDesc')}
         </p>
       </div>
       
       <!-- Cake -->
       <div class="glass rounded-2xl p-6 text-center fade-in">
         <div class="text-4xl mb-3">🎂</div>
-        <h4 class="font-heading font-semibold text-lg text-text-primary mb-2">Cake</h4>
+        <h4 class="font-heading font-semibold text-lg text-text-primary mb-2">{t('food.cake')}</h4>
         <p class="text-text-secondary text-sm">
-          Special celebration cake from HEB
+          {t('food.cakeDesc')}
         </p>
       </div>
     </div>

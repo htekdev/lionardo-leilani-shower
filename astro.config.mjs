@@ -12,6 +12,13 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false, // /page (en), /es/page (es)
+    },
+  },
   integrations: [
     react(),
     sitemap(),

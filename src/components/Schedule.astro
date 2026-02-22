@@ -1,10 +1,16 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
+
 const schedule = [
-  { time: '3:00 PM', title: 'Party Starts', desc: 'Welcome & Mingle', icon: '🎉' },
-  { time: '4:30 PM', title: 'Games Begin', desc: 'Fun for everyone!', icon: '🎮' },
-  { time: '5:00 PM', title: 'Food Served', desc: 'Fresh tacos by Jasmine!', icon: '🌮' },
-  { time: '6:00 PM', title: 'Cake & Gifts', desc: 'Sweet celebration', icon: '🎂' },
-  { time: '7:00 PM', title: 'Goodbye', desc: 'Cleanup & farewells', icon: '👋' },
+  { time: '3:00 PM', title: t('schedule.partyStarts'), desc: t('schedule.partyStartsDesc'), icon: '🎉' },
+  { time: '4:30 PM', title: t('schedule.gamesBegin'), desc: t('schedule.gamesBeginDesc'), icon: '🎮' },
+  { time: '5:00 PM', title: t('schedule.foodServed'), desc: t('schedule.foodServedDesc'), icon: '🌮' },
+  { time: '6:00 PM', title: t('schedule.cakeGifts'), desc: t('schedule.cakeGiftsDesc'), icon: '🎂' },
+  { time: '7:00 PM', title: t('schedule.goodbye'), desc: t('schedule.goodbyeDesc'), icon: '👋' },
 ];
 ---
 
@@ -13,9 +19,9 @@ const schedule = [
     <!-- Section Header -->
     <div class="text-center mb-16 fade-in">
       <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
-        Party Schedule
+        {t('schedule.title')}
       </h2>
-      <p class="text-text-secondary">Here's what to expect throughout the day!</p>
+      <p class="text-text-secondary">{t('schedule.subtitle')}</p>
     </div>
     
     <!-- Timeline -->

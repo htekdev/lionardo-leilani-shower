@@ -1,33 +1,40 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
+
 const games = [
   {
     icon: '🍼',
-    title: 'Baby Food Challenge',
-    desc: 'Taste test baby food and guess the flavor. Harder than you think!',
+    title: t('games.babyFood'),
+    desc: t('games.babyFoodDesc'),
     forGuys: false,
   },
   {
     icon: '🏃',
-    title: 'Diaper Relay Race',
-    desc: 'Drink from a bottle, run, put on a diaper, and crawl back. Hilarious!',
+    title: t('games.diaperRelay'),
+    desc: t('games.diaperRelayDesc'),
     forGuys: true,
+    tag: t('games.diaperRelayTag'),
   },
   {
     icon: '📏',
-    title: 'Belly Measuring',
-    desc: "Guess Paula's belly size using ribbon. Closest guess wins!",
+    title: t('games.bellyMeasure'),
+    desc: t('games.bellyMeasureDesc'),
     forGuys: false,
   },
   {
     icon: '💩',
-    title: 'Dirty Diaper Game',
-    desc: 'Guess which chocolate bar is melted in each diaper. Trust your nose!',
+    title: t('games.dirtyDiaper'),
+    desc: t('games.dirtyDiaperDesc'),
     forGuys: false,
   },
   {
     icon: '📎',
-    title: 'Clothespin Game',
-    desc: "Don't say 'baby'! Steal clips from anyone who does. Most clips wins!",
+    title: t('games.clothespin'),
+    desc: t('games.clothespinDesc'),
     forGuys: false,
   },
 ];
@@ -38,10 +45,10 @@ const games = [
     <!-- Section Header -->
     <div class="text-center mb-12 fade-in">
       <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
-        Games & Fun
+        {t('games.title')}
       </h2>
-      <p class="text-text-secondary mb-2">Get ready for some friendly competition!</p>
-      <p class="text-sm text-accent-pink font-medium">🎁 Prizes: $15 gift cards for winners!</p>
+      <p class="text-text-secondary mb-2">{t('games.subtitle')}</p>
+      <p class="text-sm text-accent-pink font-medium">{t('games.prizes')}</p>
     </div>
     
     <!-- Games Grid -->
@@ -53,7 +60,7 @@ const games = [
             {game.title}
             {game.forGuys && (
               <span class="ml-2 text-xs bg-accent-blue/20 text-accent-blue-dark px-2 py-1 rounded-full">
-                👔 For the guys!
+                {game.tag}
               </span>
             )}
           </h3>
@@ -64,7 +71,7 @@ const games = [
     
     <!-- Fun note -->
     <p class="text-center text-text-muted mt-8 fade-in">
-      😂 Fair warning: Most games are gonna be hilarious... especially for the guys!
+      {t('games.warning')}
     </p>
   </div>
 </section>

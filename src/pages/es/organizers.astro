@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const prepartychecklist = [
+  { task: 'Comprar premios para juegos', details: 'Tarjetas de regalo de $15 × 5 juegos', done: false },
+  { task: 'Ordenar pastel de HEB', details: 'Llamar con anticipación para reservar', done: false },
+  { task: 'Confirmar con Jasmine', details: 'La de los tacos - confirmar fecha y cantidad', done: false },
+  { task: 'Reservar U-Haul', details: '$19/día para mover muebles', done: false },
+  { task: 'Conseguir decoraciones', details: 'Globos, manteles, centros de mesa', done: false },
+  { task: 'Comprar comida de bebé', details: 'Varios sabores para la prueba', done: false },
+  { task: 'Conseguir barras de chocolate', details: 'Para el juego del pañal sucio', done: false },
+  { task: 'Comprar pinzas para ropa', details: 'Para el juego de las pinzas', done: false },
+  { task: 'Conseguir listón', details: 'Para el juego de medir la panza', done: false },
+  { task: 'Confirmar renta del inflable', details: 'Brincolín para los niños', done: false },
+];
+
+const helpers = [
+  { role: 'Futura Mamá', person: 'Paula', icon: '👶' },
+  { role: 'Coordinadores de Juegos', person: 'Yesie & Erica', icon: '🎮' },
+  { role: 'Comida/Catering', person: 'Jasmine (La de los Tacos)', icon: '🌮' },
+  { role: 'Decoraciones', person: 'Tose', icon: '🎀' },
+  { role: 'Refrescos', person: 'Frankie, Mamá de Paula, Manuel', icon: '🥤' },
+  { role: 'Ayuda con Preparación', person: 'Frankie, Erica, Jessica', icon: '💪' },
+  { role: 'Limpieza', person: 'Hector + familia', icon: '🧹' },
+];
+
+const setupTimeline = [
+  { time: '11:30 AM', task: 'Llegar a casa de Viki', details: 'Preparar mesas, sillas, manteles y centros de mesa' },
+  { time: '1:00 PM', task: 'Llega el inflable', details: 'Instalación del brincolín para los niños' },
+  { time: '3:00 PM', task: '¡Empieza la fiesta!', details: 'Comienzan a llegar los invitados' },
+  { time: '4:00 PM', task: 'Llega Jasmine', details: 'Comienza la preparación de la comida' },
+  { time: '5:00 PM', task: 'Se sirve la comida', details: '¡Hora de los tacos!' },
+];
+
+const bringList = [
+  { item: 'Mesas y sillas', who: 'Respaldo a las de Viki' },
+  { item: 'Sillón reclinable para Paula', who: 'Sobre tapete limpio' },
+  { item: 'Premios para juegos', who: 'Tarjetas de regalo de $15 × 5 juegos' },
+  { item: 'Decoraciones y centros de mesa', who: 'Tose' },
+  { item: 'Agua para invitados', who: 'Todos' },
+];
+---
+
+<BaseLayout title="Organizadores — Baby Shower de Leonardo & Leilani">
+  <Navbar />
+  
+  <main id="main-content" class="pt-20">
+    <!-- Header -->
+    <section class="py-16 px-4 bg-gradient-to-br from-accent-blue/10 to-accent-pink/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl gradient-text mb-4">
+          Centro de Organizadores
+        </h1>
+        <p class="text-text-secondary text-lg">
+          Todo lo que los ayudantes necesitan saber para el <strong>7 de Marzo</strong>
+        </p>
+      </div>
+    </section>
+    
+    <!-- Quick Info Cards -->
+    <section class="py-8 px-4 -mt-8">
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">📍</div>
+          <p class="font-bold text-text-primary">Ubicación</p>
+          <p class="text-text-secondary text-sm">Casa de Viki</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">🕐</div>
+          <p class="font-bold text-text-primary">Hora de Preparación</p>
+          <p class="text-text-secondary text-sm">11:30 AM</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">🎉</div>
+          <p class="font-bold text-text-primary">Empieza la Fiesta</p>
+          <p class="text-text-secondary text-sm">3:00 PM</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- PRE-PARTY CHECKLIST -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          ⚠️ Antes de la Fiesta
+        </h2>
+        <p class="text-text-muted text-center mb-8">¡No olviden esto!</p>
+        
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <div class="bg-gradient-to-r from-accent-blue to-accent-pink p-4">
+            <h3 class="text-white font-bold text-lg text-center">Lista Pre-Fiesta</h3>
+          </div>
+          <div class="p-4">
+            <div class="space-y-3">
+              {prepartychecklist.map((item, i) => (
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div class="w-6 h-6 rounded border-2 border-accent-pink flex-shrink-0 mt-0.5"></div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-text-primary">{item.task}</p>
+                    <p class="text-text-muted text-sm">{item.details}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Setup Timeline -->
+    <section class="py-12 px-4 bg-bg-surface">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Horario del Día
+        </h2>
+        <p class="text-text-muted text-center mb-8">Qué pasa y cuándo</p>
+        
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue to-accent-pink"></div>
+          
+          <div class="space-y-6">
+            {setupTimeline.map((item, i) => (
+              <div class="relative flex gap-4 pl-14">
+                <!-- Dot -->
+                <div class="absolute left-4 w-4 h-4 rounded-full bg-white border-4 border-accent-pink"></div>
+                
+                <div class="bg-white rounded-xl p-4 shadow-sm flex-1">
+                  <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <span class="font-bold text-text-primary bg-accent-pink/10 px-3 py-1 rounded-full text-sm">
+                      {item.time}
+                    </span>
+                    <span class="font-semibold text-text-primary">{item.task}</span>
+                  </div>
+                  <p class="text-text-secondary text-sm">{item.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Helpers Section -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Quién Hace Qué
+        </h2>
+        <p class="text-text-muted text-center mb-8">Nuestro increíble equipo</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4">
+          {helpers.map(helper => (
+            <div class="bg-white rounded-xl p-4 shadow-sm flex items-center gap-4 border-l-4 border-accent-blue">
+              <span class="text-3xl">{helper.icon}</span>
+              <div>
+                <p class="font-bold text-text-primary">{helper.role}</p>
+                <p class="text-text-secondary">{helper.person}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- What to Bring -->
+    <section class="py-12 px-4 bg-bg-surface">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Lista de Verificación
+        </h2>
+        <p class="text-text-muted text-center mb-8">Cosas que traer</p>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="space-y-4">
+            {bringList.map(item => (
+              <div class="flex items-center gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                <span class="w-6 h-6 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue font-bold text-sm">✓</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-text-primary">{item.item}</p>
+                  <p class="text-text-muted text-sm">{item.who}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Transport Note -->
+        <div class="mt-6 bg-white rounded-xl p-4 shadow-sm border-l-4 border-accent-pink">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🚚</span>
+            <div>
+              <p class="font-bold text-text-primary">Transporte</p>
+              <p class="text-text-secondary">Renta de U-Haul ($19/día) para mover muebles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

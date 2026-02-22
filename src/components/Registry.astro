@@ -1,14 +1,20 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['en'][key];
+
 const registries = [
   {
-    name: 'Amazon',
+    name: t('registry.amazon'),
     url: 'https://www.amazon.com/baby-reg/paula-rocha-june-2026-houston/H7TG3CSKL816?ref_=cm_sw_r_apin_dp_YAK06EX944GMV9P8ASVX&language=en-US',
     color: 'bg-[#FF9900]',
     hoverColor: 'hover:bg-[#E88A00]',
     icon: '📦',
   },
   {
-    name: 'Target',
+    name: t('registry.target'),
     url: 'https://www.target.com/gift-registry/gift/rocha-twins-2026',
     color: 'bg-[#CC0000]',
     hoverColor: 'hover:bg-[#AA0000]',
@@ -22,10 +28,10 @@ const registries = [
     <!-- Section Header -->
     <div class="mb-12 fade-in">
       <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
-        Gift Registry
+        {t('registry.title')}
       </h2>
       <p class="text-text-secondary">
-        Your presence is the greatest gift! But if you'd like to give something for the twins...
+        {t('registry.subtitle')}
       </p>
     </div>
     
@@ -47,7 +53,7 @@ const registries = [
           style={`animation-delay: ${index * 0.1}s`}
         >
           <span class="text-2xl">{registry.icon}</span>
-          <span>{registry.name} Registry</span>
+          <span>{registry.name}</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
           </svg>
@@ -57,7 +63,7 @@ const registries = [
     
     <!-- Note -->
     <p class="text-text-muted text-sm mt-8 fade-in">
-      💝 Thank you for celebrating with us!
+      {t('registry.thanks')}
     </p>
   </div>
 </section>
