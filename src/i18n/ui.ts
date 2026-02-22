@@ -27,6 +27,8 @@ export const ui = {
     'schedule.foodServedDesc': 'Fresh tacos by Jasmine!',
     'schedule.cakeGifts': 'Cake & Gifts',
     'schedule.cakeGiftsDesc': 'Sweet celebration',
+    'schedule.moonwalk': 'Moonwalk',
+    'schedule.moonwalkDesc': 'Bounce house for the kids — set up and ready to go! 🏰',
     'schedule.goodbye': 'Goodbye',
     'schedule.goodbyeDesc': 'Cleanup & farewells',
     
@@ -165,6 +167,8 @@ export const ui = {
     'schedule.foodServedDesc': '¡Tacos frescos de Jasmine!',
     'schedule.cakeGifts': 'Pastel y Regalos',
     'schedule.cakeGiftsDesc': 'Dulce celebración',
+    'schedule.moonwalk': 'Inflable',
+    'schedule.moonwalkDesc': '¡Brincolín para los niños — listo para la fiesta! 🏰',
     'schedule.goodbye': 'Despedida',
     'schedule.goodbyeDesc': 'Limpieza y adioses',
     
