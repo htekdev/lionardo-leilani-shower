@@ -17,11 +17,11 @@
   --color-text-secondary: #4B5563;
   --color-text-muted: #9CA3AF;
 
-  /* Baby shower accents - light blue & pink */
-  --color-accent-blue: #7DD3FC;
-  --color-accent-pink: #F9A8D4;
-  --color-accent-blue-dark: #38BDF8;
-  --color-accent-pink-dark: #F472B6;
+  /* Baby shower accents - richer blue & pink for better contrast */
+  --color-accent-blue: #0EA5E9;
+  --color-accent-pink: #EC4899;
+  --color-accent-blue-dark: #0284C7;
+  --color-accent-pink-dark: #DB2777;
 
   /* Typography */
   --font-heading: 'Montserrat', system-ui, sans-serif;
@@ -55,7 +55,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #7DD3FC, #F9A8D4);
+  background: linear-gradient(135deg, #0EA5E9, #EC4899);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
