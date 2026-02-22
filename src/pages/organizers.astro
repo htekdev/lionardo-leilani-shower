@@ -3,6 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
+const prepartychecklist = [
+  { task: 'Buy game prizes', details: '$15 gift cards × 5 games', done: false },
+  { task: 'Order cake from HEB', details: 'Call ahead to reserve', done: false },
+  { task: 'Confirm with Jasmine', details: 'Taco lady - confirm date & headcount', done: false },
+  { task: 'Reserve U-Haul', details: '$19/day for moving furniture', done: false },
+  { task: 'Get decorations', details: 'Balloons, tablecloths, centerpieces', done: false },
+  { task: 'Buy baby food for game', details: 'Various flavors for taste test', done: false },
+  { task: 'Get chocolate bars', details: 'For dirty diaper game', done: false },
+  { task: 'Buy clothespins', details: 'For clothespin game', done: false },
+  { task: 'Get ribbon', details: 'For belly measuring game', done: false },
+  { task: 'Confirm moonwalk rental', details: 'Bounce house for kids', done: false },
+];
+
 const helpers = [
   { role: 'Mom-to-be', person: 'Paula', icon: '👶' },
   { role: 'Games Coordinators', person: 'Yesie & Erica', icon: '🎮' },
@@ -14,18 +27,19 @@ const helpers = [
 ];
 
 const setupTimeline = [
-  { time: '11:30 AM - 12:00 PM', task: 'Arrive at Viki\'s, set up tables/chairs/tablecloths/centerpieces' },
-  { time: '1:00 PM', task: 'Moonwalk arrives & sets up' },
-  { time: '4:00 PM', task: 'Jasmine arrives, sets up food' },
-  { time: '5:00 PM', task: 'Food service begins' },
+  { time: '11:30 AM', task: 'Arrive at Viki\'s', details: 'Set up tables, chairs, tablecloths & centerpieces' },
+  { time: '1:00 PM', task: 'Moonwalk arrives', details: 'Bounce house setup for the kids' },
+  { time: '3:00 PM', task: 'Party starts!', details: 'Guests begin arriving' },
+  { time: '4:00 PM', task: 'Jasmine arrives', details: 'Food prep and setup begins' },
+  { time: '5:00 PM', task: 'Food served', details: 'Taco time!' },
 ];
 
 const bringList = [
-  'Tables & chairs (backup to Viki\'s)',
-  'Recliner for Paula (on cleaned area rug)',
-  'Game prizes ($15 gift cards × 5 games)',
-  'Decorations and centerpieces',
-  'Water for guests',
+  { item: 'Tables & chairs', who: 'Backup to Viki\'s' },
+  { item: 'Recliner for Paula', who: 'On cleaned area rug' },
+  { item: 'Game prizes', who: '$15 gift cards × 5 games' },
+  { item: 'Decorations & centerpieces', who: 'Tose' },
+  { item: 'Water for guests', who: 'Everyone' },
 ];
 ---
 
@@ -40,24 +54,110 @@ const bringList = [
           Organizers Hub
         </h1>
         <p class="text-text-secondary text-lg">
-          Everything helpers need to know for March 7th!
+          Everything helpers need to know for <strong>March 7th</strong>
         </p>
       </div>
     </section>
     
-    <!-- Helpers Section -->
-    <section class="py-16 px-4">
+    <!-- Quick Info Cards -->
+    <section class="py-8 px-4 -mt-8">
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">📍</div>
+          <p class="font-bold text-text-primary">Location</p>
+          <p class="text-text-secondary text-sm">Viki's House</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">🕐</div>
+          <p class="font-bold text-text-primary">Setup Time</p>
+          <p class="text-text-secondary text-sm">11:30 AM</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-md text-center">
+          <div class="text-2xl mb-2">🎉</div>
+          <p class="font-bold text-text-primary">Party Starts</p>
+          <p class="text-text-secondary text-sm">3:00 PM</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- PRE-PARTY CHECKLIST -->
+    <section class="py-12 px-4">
       <div class="max-w-4xl mx-auto">
-        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
-          🙌 Our Amazing Helpers
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          ⚠️ Before the Party
         </h2>
+        <p class="text-text-muted text-center mb-8">Don't forget these!</p>
+        
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <div class="bg-gradient-to-r from-accent-blue to-accent-pink p-4">
+            <h3 class="text-white font-bold text-lg text-center">Pre-Party Checklist</h3>
+          </div>
+          <div class="p-4">
+            <div class="space-y-3">
+              {prepartychecklist.map((item, i) => (
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div class="w-6 h-6 rounded border-2 border-accent-pink flex-shrink-0 mt-0.5"></div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-text-primary">{item.task}</p>
+                    <p class="text-text-muted text-sm">{item.details}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Setup Timeline -->
+    <section class="py-12 px-4 bg-bg-surface">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Day-Of Timeline
+        </h2>
+        <p class="text-text-muted text-center mb-8">What happens when</p>
+        
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue to-accent-pink"></div>
+          
+          <div class="space-y-6">
+            {setupTimeline.map((item, i) => (
+              <div class="relative flex gap-4 pl-14">
+                <!-- Dot -->
+                <div class="absolute left-4 w-4 h-4 rounded-full bg-white border-4 border-accent-pink"></div>
+                
+                <div class="bg-white rounded-xl p-4 shadow-sm flex-1">
+                  <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <span class="font-bold text-text-primary bg-accent-pink/10 px-3 py-1 rounded-full text-sm">
+                      {item.time}
+                    </span>
+                    <span class="font-semibold text-text-primary">{item.task}</span>
+                  </div>
+                  <p class="text-text-secondary text-sm">{item.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Helpers Section -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Who's Doing What
+        </h2>
+        <p class="text-text-muted text-center mb-8">Our amazing team</p>
+        
         <div class="grid sm:grid-cols-2 gap-4">
           {helpers.map(helper => (
-            <div class="glass rounded-xl p-4 flex items-center gap-4">
-              <span class="text-2xl">{helper.icon}</span>
+            <div class="bg-white rounded-xl p-4 shadow-sm flex items-center gap-4 border-l-4 border-accent-blue">
+              <span class="text-3xl">{helper.icon}</span>
               <div>
-                <p class="font-semibold text-text-primary">{helper.role}</p>
-                <p class="text-text-secondary text-sm">{helper.person}</p>
+                <p class="font-bold text-text-primary">{helper.role}</p>
+                <p class="text-text-secondary">{helper.person}</p>
               </div>
             </div>
           ))}
@@ -65,45 +165,37 @@ const bringList = [
       </div>
     </section>
     
-    <!-- Setup Timeline -->
-    <section class="py-16 px-4 bg-bg-surface">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
-          ⏰ Setup Timeline (Day Of)
-        </h2>
-        <div class="space-y-4">
-          {setupTimeline.map(item => (
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <span class="font-bold text-accent-pink whitespace-nowrap">{item.time}</span>
-              <p class="text-text-secondary">{item.task}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    
     <!-- What to Bring -->
-    <section class="py-16 px-4">
+    <section class="py-12 px-4 bg-bg-surface">
       <div class="max-w-4xl mx-auto">
-        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
-          📦 What to Bring
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          Checklist
         </h2>
-        <div class="glass rounded-2xl p-6">
-          <ul class="space-y-3">
+        <p class="text-text-muted text-center mb-8">Things to bring</p>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="space-y-4">
             {bringList.map(item => (
-              <li class="flex items-center gap-3">
-                <span class="text-accent-blue">✓</span>
-                <span class="text-text-secondary">{item}</span>
-              </li>
+              <div class="flex items-center gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                <span class="w-6 h-6 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue font-bold text-sm">✓</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-text-primary">{item.item}</p>
+                  <p class="text-text-muted text-sm">{item.who}</p>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
         
         <!-- Transport Note -->
-        <div class="mt-6 p-4 bg-accent-blue/10 rounded-xl text-center">
-          <p class="text-text-primary">
-            🚚 <strong>Transport:</strong> U-Haul rental ($19/day) for moving furniture
-          </p>
+        <div class="mt-6 bg-white rounded-xl p-4 shadow-sm border-l-4 border-accent-pink">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🚚</span>
+            <div>
+              <p class="font-bold text-text-primary">Transport</p>
+              <p class="text-text-secondary">U-Haul rental ($19/day) for moving furniture</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
