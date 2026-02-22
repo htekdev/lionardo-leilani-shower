@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const helpers = [
+  { role: 'Mom-to-be', person: 'Paula', icon: '👶' },
+  { role: 'Games Coordinators', person: 'Yesie & Erica', icon: '🎮' },
+  { role: 'Food/Catering', person: 'Jasmine (The Taco Lady)', icon: '🌮' },
+  { role: 'Decorations', person: 'Tose', icon: '🎀' },
+  { role: 'Sodas', person: 'Frankie, Paula\'s Mom, Manuel', icon: '🥤' },
+  { role: 'Setup Help', person: 'Frankie, Erica, Jessica', icon: '💪' },
+  { role: 'Cleanup', person: 'Hector + family', icon: '🧹' },
+];
+
+const setupTimeline = [
+  { time: '11:30 AM - 12:00 PM', task: 'Arrive at Viki\'s, set up tables/chairs/tablecloths/centerpieces' },
+  { time: '1:00 PM', task: 'Moonwalk arrives & sets up' },
+  { time: '4:00 PM', task: 'Jasmine arrives, sets up food' },
+  { time: '5:00 PM', task: 'Food service begins' },
+];
+
+const bringList = [
+  'Tables & chairs (backup to Viki\'s)',
+  'Recliner for Paula (on cleaned area rug)',
+  'Game prizes ($15 gift cards × 5 games)',
+  'Decorations and centerpieces',
+  'Water for guests',
+];
+---
+
+<BaseLayout title="Organizers — Lionardo & Leilani's Baby Shower">
+  <Navbar />
+  
+  <main id="main-content" class="pt-20">
+    <!-- Header -->
+    <section class="py-16 px-4 bg-gradient-to-br from-accent-blue/10 to-accent-pink/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl gradient-text mb-4">
+          Organizers Hub
+        </h1>
+        <p class="text-text-secondary text-lg">
+          Everything helpers need to know for March 7th!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Helpers Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
+          🙌 Our Amazing Helpers
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {helpers.map(helper => (
+            <div class="glass rounded-xl p-4 flex items-center gap-4">
+              <span class="text-2xl">{helper.icon}</span>
+              <div>
+                <p class="font-semibold text-text-primary">{helper.role}</p>
+                <p class="text-text-secondary text-sm">{helper.person}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Setup Timeline -->
+    <section class="py-16 px-4 bg-bg-surface">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
+          ⏰ Setup Timeline (Day Of)
+        </h2>
+        <div class="space-y-4">
+          {setupTimeline.map(item => (
+            <div class="glass rounded-xl p-4 flex items-start gap-4">
+              <span class="font-bold text-accent-pink whitespace-nowrap">{item.time}</span>
+              <p class="text-text-secondary">{item.task}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- What to Bring -->
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-8 text-center">
+          📦 What to Bring
+        </h2>
+        <div class="glass rounded-2xl p-6">
+          <ul class="space-y-3">
+            {bringList.map(item => (
+              <li class="flex items-center gap-3">
+                <span class="text-accent-blue">✓</span>
+                <span class="text-text-secondary">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Transport Note -->
+        <div class="mt-6 p-4 bg-accent-blue/10 rounded-xl text-center">
+          <p class="text-text-primary">
+            🚚 <strong>Transport:</strong> U-Haul rental ($19/day) for moving furniture
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

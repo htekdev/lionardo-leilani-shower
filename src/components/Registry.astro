@@ -1,0 +1,63 @@
+---
+const registries = [
+  {
+    name: 'Amazon',
+    url: 'https://www.amazon.com/baby-reg/paula-rocha-june-2026-houston/H7TG3CSKL816?ref_=cm_sw_r_apin_dp_YAK06EX944GMV9P8ASVX&language=en-US',
+    color: 'bg-[#FF9900]',
+    hoverColor: 'hover:bg-[#E88A00]',
+    icon: '📦',
+  },
+  {
+    name: 'Target',
+    url: 'https://www.target.com/gift-registry/gift/rocha-twins-2026',
+    color: 'bg-[#CC0000]',
+    hoverColor: 'hover:bg-[#AA0000]',
+    icon: '🎯',
+  },
+];
+---
+
+<section class="py-20 px-4" id="registry">
+  <div class="max-w-3xl mx-auto text-center">
+    <!-- Section Header -->
+    <div class="mb-12 fade-in">
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
+        Gift Registry
+      </h2>
+      <p class="text-text-secondary">
+        Your presence is the greatest gift! But if you'd like to give something for the twins...
+      </p>
+    </div>
+    
+    <!-- Registry Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      {registries.map((registry, index) => (
+        <a 
+          href={registry.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`
+            ${registry.color} ${registry.hoverColor}
+            text-white font-heading font-semibold text-lg
+            px-8 py-4 rounded-2xl
+            flex items-center gap-3
+            transition-all transform hover:scale-105 hover:shadow-lg
+            fade-in
+          `}
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <span class="text-2xl">{registry.icon}</span>
+          <span>{registry.name} Registry</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+      ))}
+    </div>
+    
+    <!-- Note -->
+    <p class="text-text-muted text-sm mt-8 fade-in">
+      💝 Thank you for celebrating with us!
+    </p>
+  </div>
+</section>

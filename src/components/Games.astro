@@ -1,0 +1,70 @@
+---
+const games = [
+  {
+    icon: '🍼',
+    title: 'Baby Food Challenge',
+    desc: 'Taste test baby food and guess the flavor. Harder than you think!',
+    forGuys: false,
+  },
+  {
+    icon: '🏃',
+    title: 'Diaper Relay Race',
+    desc: 'Drink from a bottle, run, put on a diaper, and crawl back. Hilarious!',
+    forGuys: true,
+  },
+  {
+    icon: '📏',
+    title: 'Belly Measuring',
+    desc: "Guess Paula's belly size using ribbon. Closest guess wins!",
+    forGuys: false,
+  },
+  {
+    icon: '💩',
+    title: 'Dirty Diaper Game',
+    desc: 'Guess which chocolate bar is melted in each diaper. Trust your nose!',
+    forGuys: false,
+  },
+  {
+    icon: '📎',
+    title: 'Clothespin Game',
+    desc: "Don't say 'baby'! Steal clips from anyone who does. Most clips wins!",
+    forGuys: false,
+  },
+];
+---
+
+<section class="py-20 px-4" id="games">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12 fade-in">
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">
+        Games & Fun
+      </h2>
+      <p class="text-text-secondary mb-2">Get ready for some friendly competition!</p>
+      <p class="text-sm text-accent-pink font-medium">🎁 Prizes: $15 gift cards for winners!</p>
+    </div>
+    
+    <!-- Games Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {games.map((game, index) => (
+        <div class="glass rounded-2xl p-6 hover:scale-105 transition-transform fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="text-4xl mb-4">{game.icon}</div>
+          <h3 class="font-heading font-semibold text-xl text-text-primary mb-2">
+            {game.title}
+            {game.forGuys && (
+              <span class="ml-2 text-xs bg-accent-blue/20 text-accent-blue-dark px-2 py-1 rounded-full">
+                👔 For the guys!
+              </span>
+            )}
+          </h3>
+          <p class="text-text-secondary text-sm">{game.desc}</p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Fun note -->
+    <p class="text-center text-text-muted mt-8 fade-in">
+      😂 Fair warning: Most games are gonna be hilarious... especially for the guys!
+    </p>
+  </div>
+</section>
