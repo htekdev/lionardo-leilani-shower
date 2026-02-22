@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 /* ===== Baby Shower Design System ===== */
+/* Color palette matched to invite: soft dusty blue, dusty pink, warm beige */
 
 @theme {
-  /* Backgrounds - soft & elegant */
-  --color-bg-cream: #FEFCFB;
-  --color-bg-surface: #FFF5F7;
-  --color-bg-overlay: #FDF2F8;
+  /* Backgrounds - warm cream/beige like invite */
+  --color-bg-cream: #FAF6F1;
+  --color-bg-surface: #FDF8F3;
+  --color-bg-overlay: #F5EDE6;
 
   /* Borders */
-  --color-border-default: #F3D5E0;
-  --color-border-muted: #FCE7F3;
+  --color-border-default: #E8D5C4;
+  --color-border-muted: #F0E6DC;
 
-  /* Text */
-  --color-text-primary: #1F2937;
-  --color-text-secondary: #4B5563;
-  --color-text-muted: #9CA3AF;
+  /* Text - warm charcoal/brown tones */
+  --color-text-primary: #3D3D3D;
+  --color-text-secondary: #5C5C5C;
+  --color-text-muted: #8B8B8B;
 
-  /* Baby shower accents - richer blue & pink for better contrast */
-  --color-accent-blue: #0EA5E9;
-  --color-accent-pink: #EC4899;
-  --color-accent-blue-dark: #0284C7;
-  --color-accent-pink-dark: #DB2777;
+  /* Baby shower accents - dusty/muted like invite */
+  --color-accent-blue: #8BA4B8;
+  --color-accent-pink: #D4A5A5;
+  --color-accent-blue-dark: #6B8A9E;
+  --color-accent-pink-dark: #C48B8B;
+  --color-accent-tan: #C4B49A;
 
   /* Typography */
   --font-heading: 'Montserrat', system-ui, sans-serif;
