@@ -3,7 +3,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/organizers', label: 'Organizers' },
 ];
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL;
       <div class="hidden md:flex items-center gap-8">
         {navLinks.map(link => (
           <a 
-            href={`${base}${link.href === '/' ? '' : link.href.slice(1)}`}
+            href={link.href === '/' ? base : `${base}${link.href.slice(1)}`}
             class="text-text-secondary hover:text-accent-pink transition-colors font-medium"
           >
             {link.label}
@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL;
     <div class="px-4 py-4 space-y-2">
       {navLinks.map(link => (
         <a 
-          href={`${base}${link.href === '/' ? '' : link.href.slice(1)}`}
+          href={link.href === '/' ? base : `${base}${link.href.slice(1)}`}
           class="block py-2 text-text-secondary hover:text-accent-pink transition-colors font-medium"
         >
           {link.label}
