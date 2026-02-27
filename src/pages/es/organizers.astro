@@ -7,7 +7,7 @@ const prepartychecklist = [
   { task: 'Comprar premios para juegos', details: 'Tarjetas de regalo de $20 × 6 juegos', done: false },
   { task: 'Ordenar pastel de HEB', details: 'Llamar con anticipación para reservar', done: false },
   { task: 'Confirmar con Jasmine', details: 'La de los tacos - confirmar fecha y cantidad', done: false },
-  { task: 'Reservar U-Haul', details: '$19/día para mover muebles', done: false },
+  { task: 'Reservar U-Haul', details: '$19/día para mover muebles', done: true },
   { task: 'Conseguir decoraciones', details: 'Globos, manteles, centros de mesa', done: false },
   { task: 'Materiales Carrera del Bebé', details: 'Biberones × 5, Baberos de adulto × 5, Pañales de adulto × 5', done: false },
   { task: 'Juego de Comida de Bebé', details: 'Varios sabores de comida de bebé + Bodies de bebé (cartones ya los tienen)', done: false },
@@ -97,10 +97,12 @@ const bringList = [
           <div class="p-4">
             <div class="space-y-3">
               {prepartychecklist.map((item, i) => (
-                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                  <div class="w-6 h-6 rounded border-2 border-accent-pink flex-shrink-0 mt-0.5"></div>
+                <div class={`flex items-start gap-3 p-3 rounded-lg ${item.done ? 'bg-green-50' : 'bg-gray-50'}`}>
+                  <div class={`w-6 h-6 rounded border-2 flex-shrink-0 mt-0.5 flex items-center justify-center text-xs font-bold ${item.done ? 'bg-green-500 border-green-500 text-white' : 'border-accent-pink'}`}>
+                    {item.done ? '✓' : ''}
+                  </div>
                   <div class="flex-1">
-                    <p class="font-semibold text-text-primary">{item.task}</p>
+                    <p class={`font-semibold ${item.done ? 'text-text-muted line-through' : 'text-text-primary'}`}>{item.task}</p>
                     <p class="text-text-muted text-sm">{item.details}</p>
                   </div>
                 </div>
@@ -191,11 +193,23 @@ const bringList = [
         
         <!-- Transport Note -->
         <div class="mt-6 bg-white rounded-xl p-4 shadow-sm border-l-4 border-accent-pink">
-          <div class="flex items-center gap-3">
+          <div class="flex items-start gap-3">
             <span class="text-2xl">🚚</span>
-            <div>
+            <div class="flex-1">
               <p class="font-bold text-text-primary">Transporte</p>
-              <p class="text-text-secondary">Renta de U-Haul ($19/día) para mover muebles</p>
+              <p class="text-text-secondary">Renta de U-Haul ($19/día) para mover muebles — <span class="text-green-600 font-semibold">✓ ¡Reservado!</span></p>
+              <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                <p class="font-semibold text-yellow-800 text-sm mb-2">⚠️ Requisitos para Recoger el U-Haul</p>
+                <p class="text-yellow-700 text-sm mb-2">Llevar <strong>licencia de conducir</strong> más un mínimo de <strong>2</strong> de los siguientes:</p>
+                <ul class="text-yellow-700 text-sm space-y-1 list-disc list-inside">
+                  <li>Contacto Adicional <span class="text-yellow-600 italic">(se llamará y verificará)</span></li>
+                  <li>Empleo <span class="text-yellow-600 italic">(se llamará y verificará)</span></li>
+                  <li>Información de un Familiar <span class="text-yellow-600 italic">(se llamará y verificará)</span></li>
+                  <li>Pasaporte (no vencido)</li>
+                  <li>Contrato de Arrendamiento Residencial (vigente)</li>
+                  <li>Si la licencia es de otro país: puede requerirse foto de visa</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
