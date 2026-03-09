@@ -36,6 +36,59 @@ const setupTimeline = [
   { time: '5:00 PM', task: 'Food served', details: 'Taco time!' },
 ];
 
+const gamesChecklist = [
+  {
+    icon: '🍼',
+    title: 'Baby Food Challenge',
+    items: [
+      { task: '5–8 jars of baby food', details: 'Pick a variety of flavors (fruit, veggie, meat)' },
+      { task: 'Spoons', details: 'One per player' },
+      { task: 'Paper & pens', details: 'For players to write their guesses' },
+      { task: '$15 gift card prize', details: 'For the winner' },
+    ],
+  },
+  {
+    icon: '🏃',
+    title: 'Diaper Relay Race',
+    items: [
+      { task: 'Baby diapers', details: 'At least 6 (for the relay)' },
+      { task: 'Baby bottles', details: 'At least 2, filled with water or juice' },
+      { task: 'Open running space', details: 'Clear a lane in the backyard or living area' },
+      { task: '$15 gift card prize', details: 'For the winner' },
+    ],
+  },
+  {
+    icon: '📏',
+    title: 'Belly Measuring',
+    items: [
+      { task: 'Ribbon or yarn', details: '1 full roll — players cut their guess length' },
+      { task: 'Scissors', details: 'For cutting the ribbon' },
+      { task: 'Marker', details: 'To label each person\'s ribbon guess' },
+      { task: '$15 gift card prize', details: 'For the closest guess' },
+    ],
+  },
+  {
+    icon: '💩',
+    title: 'Dirty Diaper Game',
+    items: [
+      { task: '5–8 diapers', details: 'One per chocolate bar' },
+      { task: '5–8 different chocolate bars', details: 'e.g. Snickers, Kit Kat, Reese\'s, Milky Way, Twix' },
+      { task: 'Microwave', details: 'To melt chocolate into each diaper' },
+      { task: 'Numbered stickers or tape', details: 'To label each diaper by number' },
+      { task: 'Paper & pens', details: 'For players to write their guesses' },
+      { task: '$15 gift card prize', details: 'For the winner' },
+    ],
+  },
+  {
+    icon: '📎',
+    title: 'Clothespin Game',
+    items: [
+      { task: 'Clothespins', details: '1 per guest (buy ~40 to be safe)' },
+      { task: '$15 gift card prize', details: 'For whoever collects the most pins' },
+    ],
+  },
+];
+
 const bringList = [
   { item: 'Tables & chairs', who: 'Backup to Viki\'s' },
   { item: 'Recliner for Paula', who: 'On cleaned area rug' },
@@ -113,6 +166,40 @@ const bringList = [
       </div>
     </section>
     
+    <!-- Games Supplies Checklist -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          🎮 Games Supplies
+        </h2>
+        <p class="text-text-muted text-center mb-8">What you need for each game</p>
+
+        <div class="space-y-6">
+          {gamesChecklist.map(game => (
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+              <div class="bg-gradient-to-r from-accent-blue/20 to-accent-pink/20 px-5 py-3 flex items-center gap-3">
+                <span class="text-2xl">{game.icon}</span>
+                <h3 class="font-heading font-bold text-lg text-text-primary">{game.title}</h3>
+              </div>
+              <div class="p-4">
+                <div class="space-y-3">
+                  {game.items.map(item => (
+                    <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div class="w-6 h-6 rounded border-2 border-accent-blue flex-shrink-0 mt-0.5"></div>
+                      <div class="flex-1">
+                        <p class="font-semibold text-text-primary">{item.task}</p>
+                        <p class="text-text-muted text-sm">{item.details}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Setup Timeline -->
     <section class="py-12 px-4 bg-bg-surface">
       <div class="max-w-4xl mx-auto">

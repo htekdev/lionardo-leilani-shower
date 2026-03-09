@@ -36,6 +36,59 @@ const setupTimeline = [
   { time: '5:00 PM', task: 'Se sirve la comida', details: '¡Hora de los tacos!' },
 ];
 
+const gamesChecklist = [
+  {
+    icon: '🍼',
+    title: 'Reto de Comida de Bebé',
+    items: [
+      { task: '5–8 frascos de comida de bebé', details: 'Elige variedad de sabores (fruta, verdura, carne)' },
+      { task: 'Cucharas', details: 'Una por jugador' },
+      { task: 'Papel y lápices', details: 'Para que los jugadores escriban sus respuestas' },
+      { task: 'Premio: tarjeta de regalo de $15', details: 'Para el ganador' },
+    ],
+  },
+  {
+    icon: '🏃',
+    title: 'Carrera de Relevos con Pañales',
+    items: [
+      { task: 'Pañales de bebé', details: 'Al menos 6 (para la carrera)' },
+      { task: 'Biberones', details: 'Al menos 2, llenos de agua o jugo' },
+      { task: 'Espacio para correr', details: 'Despejar una zona en el patio o sala' },
+      { task: 'Premio: tarjeta de regalo de $15', details: 'Para el ganador' },
+    ],
+  },
+  {
+    icon: '📏',
+    title: 'Medir la Panza',
+    items: [
+      { task: 'Listón o estambre', details: '1 rollo completo — cada jugador corta su estimación' },
+      { task: 'Tijeras', details: 'Para cortar el listón' },
+      { task: 'Marcador', details: 'Para etiquetar el listón de cada persona' },
+      { task: 'Premio: tarjeta de regalo de $15', details: 'Para el más cercano' },
+    ],
+  },
+  {
+    icon: '💩',
+    title: 'Juego del Pañal Sucio',
+    items: [
+      { task: '5–8 pañales', details: 'Uno por cada chocolate' },
+      { task: '5–8 barras de chocolate diferentes', details: 'Ej. Snickers, Kit Kat, Reese\'s, Milky Way, Twix' },
+      { task: 'Microondas', details: 'Para derretir el chocolate en cada pañal' },
+      { task: 'Etiquetas o cinta numerada', details: 'Para numerar cada pañal' },
+      { task: 'Papel y lápices', details: 'Para que los jugadores escriban sus respuestas' },
+      { task: 'Premio: tarjeta de regalo de $15', details: 'Para el ganador' },
+    ],
+  },
+  {
+    icon: '📎',
+    title: 'Juego de las Pinzas',
+    items: [
+      { task: 'Pinzas para ropa', details: '1 por invitado (comprar ~40 para tener de sobra)' },
+      { task: 'Premio: tarjeta de regalo de $15', details: 'Para quien junte más pinzas' },
+    ],
+  },
+];
+
 const bringList = [
   { item: 'Mesas y sillas', who: 'Respaldo a las de Viki' },
   { item: 'Sillón reclinable para Paula', who: 'Sobre tapete limpio' },
@@ -113,6 +166,40 @@ const bringList = [
       </div>
     </section>
     
+    <!-- Lista de Materiales por Juego -->
+    <section class="py-12 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl text-text-primary mb-2 text-center">
+          🎮 Materiales por Juego
+        </h2>
+        <p class="text-text-muted text-center mb-8">Lo que necesitas para cada juego</p>
+
+        <div class="space-y-6">
+          {gamesChecklist.map(game => (
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+              <div class="bg-gradient-to-r from-accent-blue/20 to-accent-pink/20 px-5 py-3 flex items-center gap-3">
+                <span class="text-2xl">{game.icon}</span>
+                <h3 class="font-heading font-bold text-lg text-text-primary">{game.title}</h3>
+              </div>
+              <div class="p-4">
+                <div class="space-y-3">
+                  {game.items.map(item => (
+                    <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div class="w-6 h-6 rounded border-2 border-accent-blue flex-shrink-0 mt-0.5"></div>
+                      <div class="flex-1">
+                        <p class="font-semibold text-text-primary">{item.task}</p>
+                        <p class="text-text-muted text-sm">{item.details}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Setup Timeline -->
     <section class="py-12 px-4 bg-bg-surface">
       <div class="max-w-4xl mx-auto">
