@@ -1,24 +1,24 @@
-# 🎀👶 Lionardo & Leilani Baby Shower
+# 🎀👶 Leilani & Leo Baby Shower
 
-A celebratory website for Paula's twins — **Lionardo** (boy 💙) and **Leilani** (girl 🩷) — arriving in 2026!
+A heartfelt website for the Rocha family's baby shower, honoring **Leilani & Leo** and the love carrying them through their NICU journey.
 
-## 🎉 Event Details
+## 🎉 Current Update
 
 | | |
 | :-- | :-- |
-| **Date** | March 7th, 2026 |
-| **Time** | 3:00 PM |
-| **Location** | Viki's House |
-| **Hosted for** | Paula & her twins |
+| **Babies** | Leilani & Leo |
+| **Born** | April 16, 2026 at 29–30 weeks |
+| **Current moment** | Day 30 in the NICU |
+| **Shower date** | Awaiting Paula's confirmation for the new weekend date |
 
 ## 📋 What's on the Site
 
-- **Hero** — Welcome banner celebrating the twins
-- **Schedule** — Timeline of the day's events
-- **Games** — Fun baby shower activities
-- **Food** — Menu and refreshments info
-- **Registry** — Gift registry links
-- **Footer** — Contact and closing details
+- **Hero** — Warm welcome for Leilani & Leo
+- **Celebration Details** — Date-confirmation note plus the heart behind the shower
+- **Story** — The twins' early arrival and the Rocha family's strength
+- **Milestones** — Day 30 NICU update with hopeful, family-centered copy
+- **Future Outlook** — What the shower celebrates as everyone looks toward homecoming
+- **Registry** — Gift registry links for loved ones who want to help
 
 ## 🌐 Live Site
 

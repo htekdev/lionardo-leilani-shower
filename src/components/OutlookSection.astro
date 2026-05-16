@@ -1,0 +1,54 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const copy = {
+  en: {
+    title: 'What this shower will celebrate',
+    intro:
+      'This gathering is a chance to honor how far Leilani and Leo have already come, to lift up Paula and Hector, and to celebrate the beautiful homecoming everyone is waiting for.',
+    points: [
+      'A room full of people loving these babies long before the day they walk through the front door together.',
+      'A family that has been tested by the NICU season and has answered it with tenderness, grit, and faith.',
+      'A future filled with first cuddles at home, sibling chaos with Hector Jr., and the joy of finally having everyone together.',
+    ],
+    closing:
+      'Until that day arrives, this shower stands as a promise: Leilani and Leo are already surrounded by so much love.',
+  },
+  es: {
+    title: 'Lo que este shower va a celebrar',
+    intro:
+      'Esta reunión es una oportunidad para honrar todo lo que Leilani y Leo ya han logrado, para levantar a Paula y Hector, y para celebrar el hermoso regreso a casa que todos están esperando.',
+    points: [
+      'Un cuarto lleno de personas amando a estos bebés mucho antes del día en que crucen juntos la puerta de su casa.',
+      'Una familia que ha sido probada por la temporada en NICU y que la ha respondido con ternura, fuerza y fe.',
+      'Un futuro lleno de primeros abrazos en casa, travesuras entre hermanos con Hector Jr. y la alegría de por fin tener a todos juntos.',
+    ],
+    closing:
+      'Hasta que llegue ese día, este shower es una promesa: Leilani y Leo ya están rodeados de muchísimo amor.',
+  },
+} as const;
+
+const content = copy[lang] ?? copy.en;
+---
+
+<section class="py-20 px-4" id="outlook">
+  <div class="max-w-5xl mx-auto">
+    <div class="bg-gradient-to-br from-white to-bg-overlay rounded-[2rem] p-8 sm:p-12 shadow-lg border border-border-default fade-in">
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-5 text-center">{content.title}</h2>
+      <p class="text-text-secondary text-lg leading-relaxed text-center max-w-3xl mx-auto mb-10">{content.intro}</p>
+
+      <div class="grid gap-4 mb-10">
+        {content.points.map((point, index) => (
+          <div class="flex items-start gap-4 rounded-2xl bg-white/80 px-5 py-4 border border-border-default fade-in" style={`animation-delay: ${index * 0.1}s`}>
+            <span class="text-2xl">✨</span>
+            <p class="text-text-secondary leading-relaxed">{point}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="font-heading text-2xl text-text-primary text-center leading-relaxed">{content.closing}</p>
+    </div>
+  </div>
+</section>
