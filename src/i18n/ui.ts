@@ -9,12 +9,14 @@ export const ui = {
   en: {
     // Navigation
     'nav.home': 'Home',
-    'nav.organizers': 'Organizers',
+    'nav.organizers': 'Celebration Details',
     
     // Hero
-    'hero.subtitle': 'A Baby Shower for',
-    'hero.date': 'March 7th, 2026 • 3:00 PM',
-    'hero.location': "Viki's House",
+    'hero.subtitle': 'Celebrating the Rocha family',
+    'hero.tagline': 'For Leilani & Leo',
+    'hero.message': 'Born early on April 16, 2026 and now 30 days into their NICU journey, these two little miracles are already surrounded by so much love.',
+    'hero.date': 'Updated shower date coming soon',
+    'hero.location': 'Final event details will be shared with family once confirmed',
     
     // Schedule
     'schedule.title': 'Party Schedule',
@@ -71,16 +73,16 @@ export const ui = {
     'food.cakeDesc': 'Special celebration cake from HEB',
     
     // Registry
-    'registry.title': 'Gift Registry',
-    'registry.subtitle': "Your presence is the greatest gift! But if you'd like to give something for the twins...",
+    'registry.title': 'Registry & Support',
+    'registry.subtitle': "Your love means everything. If you'd like to bless Leilani and Leo with something tangible too, their registries are here.",
     'registry.amazon': 'Amazon Registry',
     'registry.target': 'Target Registry',
-    'registry.thanks': '💝 Thank you for celebrating with us!',
+    'registry.thanks': '💝 Thank you for loving this family so well.',
     
     // Footer
-    'footer.welcome': 'Welcome to the world, Leonardo & Leilani!',
-    'footer.cantWait': "We can't wait to meet you both. 🥰",
-    'footer.madeWith': "Made with 💕 for Paula's baby shower",
+    'footer.welcome': 'With all our love for Leilani & Leo.',
+    'footer.cantWait': 'This celebration is for the babies, their brave parents, and the beautiful day everyone gets to be home together.',
+    'footer.madeWith': 'Made with love for the Rocha family',
     
     // Organizers Page
     'org.title': 'Organizers Hub',
@@ -162,12 +164,14 @@ export const ui = {
   es: {
     // Navigation
     'nav.home': 'Inicio',
-    'nav.organizers': 'Organizadores',
+    'nav.organizers': 'Detalles de la celebración',
     
     // Hero
-    'hero.subtitle': 'Un Baby Shower para',
-    'hero.date': '7 de Marzo, 2026 • 3:00 PM',
-    'hero.location': 'Casa de Viki',
+    'hero.subtitle': 'Celebrando a la familia Rocha',
+    'hero.tagline': 'Para Leilani y Leo',
+    'hero.message': 'Nacieron antes de tiempo el 16 de abril de 2026 y ahora, en su día 30 de NICU, estos dos pequeños milagros ya están rodeados de muchísimo amor.',
+    'hero.date': 'Nueva fecha del shower próximamente',
+    'hero.location': 'Los detalles finales se compartirán con la familia cuando estén confirmados',
     
     // Schedule
     'schedule.title': 'Horario de la Fiesta',
@@ -224,16 +228,16 @@ export const ui = {
     'food.cakeDesc': 'Pastel especial de celebración de HEB',
     
     // Registry
-    'registry.title': 'Lista de Regalos',
-    'registry.subtitle': '¡Tu presencia es el mejor regalo! Pero si quieres dar algo para los gemelos...',
+    'registry.title': 'Registros y apoyo',
+    'registry.subtitle': 'Su cariño significa muchísimo. Si también quieren bendecir a Leilani y Leo con algo tangible, aquí están sus registros.',
     'registry.amazon': 'Registro de Amazon',
     'registry.target': 'Registro de Target',
-    'registry.thanks': '💝 ¡Gracias por celebrar con nosotros!',
+    'registry.thanks': '💝 Gracias por amar tan bonito a esta familia.',
     
     // Footer
-    'footer.welcome': '¡Bienvenidos al mundo, Leonardo & Leilani!',
-    'footer.cantWait': 'No podemos esperar para conocerlos. 🥰',
-    'footer.madeWith': 'Hecho con 💕 para el baby shower de Paula',
+    'footer.welcome': 'Con todo nuestro amor para Leilani y Leo.',
+    'footer.cantWait': 'Esta celebración es para los bebés, sus valientes papás y el hermoso día en que todos estén juntos en casa.',
+    'footer.madeWith': 'Hecho con amor para la familia Rocha',
     
     // Organizers Page
     'org.title': 'Centro de Organizadores',

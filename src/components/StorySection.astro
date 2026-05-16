@@ -1,0 +1,53 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const copy = {
+  en: {
+    title: 'Leilani & Leo\'s story',
+    paragraphs: [
+      'Leilani and Leo were born on April 16, 2026 at 29–30 weeks, arriving earlier than anyone expected and instantly changing the rhythm of the Rocha family\'s world.',
+      'Since then, Paula and Hector have been walking a brave NICU journey filled with long days, grateful tears, quiet prayers, and the kind of strength that only grows when love is this deep.',
+      'Their big brother, Hector Jr., is already part of their story too — waiting to love on them, cheer them on, and help welcome them into a family that has carried every single day with courage.',
+    ],
+    pullQuote:
+      'This shower now celebrates not just two beautiful babies, but a family that has met an unexpected season with tenderness, faith, and fierce love.',
+  },
+  es: {
+    title: 'La historia de Leilani y Leo',
+    paragraphs: [
+      'Leilani y Leo nacieron el 16 de abril de 2026 a las 29–30 semanas, llegando antes de lo esperado y cambiando de inmediato el ritmo del mundo de la familia Rocha.',
+      'Desde entonces, Paula y Hector han caminado una valiente jornada en NICU llena de días largos, lágrimas de gratitud, oraciones en silencio y una fortaleza que solo crece cuando el amor es así de profundo.',
+      'Su hermano mayor, Hector Jr., también ya es parte de esta historia — esperando abrazarlos, echarles porras y ayudar a recibirlos en una familia que ha llevado cada día con valentía.',
+    ],
+    pullQuote:
+      'Este shower ahora celebra no solo a dos bebés hermosos, sino también a una familia que ha vivido una temporada inesperada con ternura, fe y un amor inmenso.',
+  },
+} as const;
+
+const content = copy[lang] ?? copy.en;
+---
+
+<section class="py-20 px-4" id="story">
+  <div class="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+    <div class="fade-in">
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-6">{content.title}</h2>
+      <div class="space-y-5 text-text-secondary text-lg leading-relaxed">
+        {content.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+
+    <aside class="relative fade-in">
+      <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent-blue/20 to-accent-pink/30 blur-2xl"></div>
+      <div class="relative bg-white/85 backdrop-blur-sm rounded-[2rem] p-8 sm:p-10 shadow-lg border border-border-default">
+        <div class="flex gap-3 text-2xl mb-6">
+          <span>💙</span>
+          <span>💗</span>
+          <span>✨</span>
+        </div>
+        <p class="font-heading text-2xl leading-relaxed text-text-primary">“{content.pullQuote}”</p>
+      </div>
+    </aside>
+  </div>
+</section>

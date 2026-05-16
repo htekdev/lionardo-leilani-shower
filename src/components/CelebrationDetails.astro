@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const copy = {
+  en: {
+    eyebrow: 'Updated celebration',
+    title: 'A baby shower centered on love, strength, and the joy ahead',
+    intro:
+      'We reached out to Paula to confirm the shower\'s new date, so that final detail is being updated with care. What already feels certain is the heart behind this day: surrounding the Rocha family with love while Leilani and Leo keep growing stronger.',
+    cards: [
+      {
+        icon: '📅',
+        title: 'Date confirmation in progress',
+        body:
+          'The family is locking in the new weekend date now. This page is ready for the update as soon as Paula confirms it.',
+      },
+      {
+        icon: '🫶',
+        title: 'A shower shaped by support',
+        body:
+          'This celebration is about more than gifts. It is a chance to wrap Paula, Hector, big brother Hector Jr., Leilani, and Leo in encouragement, prayer, and practical love.',
+      },
+      {
+        icon: '🏡',
+        title: 'Looking toward homecoming',
+        body:
+          'Every hug, note, and present honors the day both babies get to come home and the whole family can finally be together under one roof.',
+      },
+    ],
+  },
+  es: {
+    eyebrow: 'Celebración actualizada',
+    title: 'Un baby shower lleno de amor, fortaleza y alegría por lo que viene',
+    intro:
+      'Ya le escribimos a Paula para confirmar la nueva fecha del shower, así que ese detalle final se actualizará con cuidado. Lo que ya tenemos claro es el corazón de este día: rodear a la familia Rocha de amor mientras Leilani y Leo siguen poniéndose más fuertes.',
+    cards: [
+      {
+        icon: '📅',
+        title: 'Confirmación de fecha en progreso',
+        body:
+          'La familia está cerrando la nueva fecha del fin de semana. Esta página está lista para actualizarse en cuanto Paula la confirme.',
+      },
+      {
+        icon: '🫶',
+        title: 'Un shower lleno de apoyo',
+        body:
+          'Esta celebración es mucho más que regalos. Es una oportunidad para rodear a Paula, Hector, el hermano mayor Hector Jr., Leilani y Leo con ánimo, oración y cariño práctico.',
+      },
+      {
+        icon: '🏡',
+        title: 'Mirando hacia el regreso a casa',
+        body:
+          'Cada abrazo, nota y regalo honra el día en que los dos bebés puedan ir a casa y toda la familia por fin esté junta bajo el mismo techo.',
+      },
+    ],
+  },
+} as const;
+
+const content = copy[lang] ?? copy.en;
+---
+
+<section class="py-20 px-4 bg-bg-surface" id="celebration-details">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-12 fade-in">
+      <p class="uppercase tracking-[0.3em] text-xs font-semibold text-accent-pink mb-4">{content.eyebrow}</p>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">{content.title}</h2>
+      <p class="text-text-secondary text-lg leading-relaxed">{content.intro}</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {content.cards.map((card, index) => (
+        <article class="glass rounded-3xl p-8 shadow-sm fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="text-4xl mb-4">{card.icon}</div>
+          <h3 class="font-heading font-semibold text-2xl text-text-primary mb-3">{card.title}</h3>
+          <p class="text-text-secondary leading-relaxed">{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

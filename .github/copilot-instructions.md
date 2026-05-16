@@ -1,7 +1,7 @@
-# Lionardo & Leilani Baby Shower Site — Copilot Instructions
+# Leilani & Leo Baby Shower Site — Copilot Instructions
 
 ## Project Overview
-Baby shower homepage for Paula's twins (Lionardo - boy, Leilani - girl), hosted on GitHub Pages.
+Baby shower homepage for the Rocha family celebrating Leilani & Leo and their NICU journey, hosted on GitHub Pages.
 
 ## Tech Stack
 - **Framework:** Astro 5 (static site generator)
@@ -26,8 +26,8 @@ Baby shower homepage for Paula's twins (Lionardo - boy, Leilani - girl), hosted 
 - Mobile-first responsive design
 
 ## Event Details
-- **Date:** March 7th, 2026
-- **Time:** 3:00 PM
-- **Location:** Viki's House (address private)
-- **Mom-to-be:** Paula
-- **Twins:** Lionardo (boy), Leilani (girl)
+- **Shower Date:** Waiting on Paula's final confirmation for the new weekend date
+- **Story:** Leilani & Leo were born April 16, 2026 at 29–30 weeks
+- **Current Moment:** Day 30 in the NICU
+- **Family:** Paula, Hector, big brother Hector Jr., Leilani, and Leo
+- **Tone:** Warm, heartfelt, family-centered, and hopeful about homecoming

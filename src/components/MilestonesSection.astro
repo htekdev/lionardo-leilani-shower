@@ -1,0 +1,100 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const copy = {
+  en: {
+    eyebrow: 'Where things are now',
+    title: 'Day 30 in the NICU',
+    intro:
+      'Thirty days in, this journey is still tender — but it is also full of real progress, tiny victories, and hope that keeps showing up day after day.',
+    milestones: [
+      {
+        icon: '🫁',
+        title: 'One day at a time',
+        body:
+          'The Rocha family is learning to celebrate the kind of progress the NICU teaches you to notice: one more steady day, one more encouraging update, one more reason to exhale.',
+      },
+      {
+        icon: '🍼',
+        title: 'Little milestones, big meaning',
+        body:
+          'Every ounce, every restful stretch, every calm moment, and every new sign of strength matters deeply when you love these babies this much.',
+      },
+      {
+        icon: '🤍',
+        title: 'Love holding everything together',
+        body:
+          'Paula and Hector have carried this season with grace, and their family has kept showing up with patience, care, and unwavering love for both babies.',
+      },
+      {
+        icon: '🧸',
+        title: 'Big brother energy',
+        body:
+          'Hector Jr. is part of the joy ahead too — waiting for the day the house feels fuller, louder, and even more full of sibling love.',
+      },
+    ],
+  },
+  es: {
+    eyebrow: 'Cómo van las cosas ahora',
+    title: 'Día 30 en NICU',
+    intro:
+      'Treinta días después, esta jornada sigue siendo sensible — pero también está llena de progreso real, victorias pequeñas y una esperanza que sigue apareciendo cada día.',
+    milestones: [
+      {
+        icon: '🫁',
+        title: 'Un día a la vez',
+        body:
+          'La familia Rocha está aprendiendo a celebrar el tipo de avance que NICU te enseña a notar: un día más estable, una actualización alentadora más, una razón más para respirar con calma.',
+      },
+      {
+        icon: '🍼',
+        title: 'Milagritos que significan mucho',
+        body:
+          'Cada onza, cada ratito de descanso, cada momento tranquilo y cada nueva muestra de fortaleza significa muchísimo cuando amas así a estos bebés.',
+      },
+      {
+        icon: '🤍',
+        title: 'El amor sosteniéndolo todo',
+        body:
+          'Paula y Hector han llevado esta temporada con gracia, y su familia ha seguido presente con paciencia, cuidado y un amor firme por los dos bebés.',
+      },
+      {
+        icon: '🧸',
+        title: 'Energía de hermano mayor',
+        body:
+          'Hector Jr. también es parte de la alegría que viene — esperando el día en que la casa se sienta más llena, más ruidosa y aún más llena de amor entre hermanos.',
+      },
+    ],
+  },
+} as const;
+
+const content = copy[lang] ?? copy.en;
+---
+
+<section class="py-20 px-4 bg-bg-surface" id="milestones">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-12 fade-in">
+      <p class="uppercase tracking-[0.3em] text-xs font-semibold text-accent-blue mb-4">{content.eyebrow}</p>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl gradient-text mb-4">{content.title}</h2>
+      <p class="text-text-secondary text-lg leading-relaxed">{content.intro}</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {content.milestones.map((milestone, index) => (
+        <article class="bg-white rounded-3xl p-7 shadow-sm border border-border-default fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-blue/20 to-accent-pink/20 flex items-center justify-center text-3xl shrink-0">
+              {milestone.icon}
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-2xl text-text-primary mb-2">{milestone.title}</h3>
+              <p class="text-text-secondary leading-relaxed">{milestone.body}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
